@@ -1,5 +1,14 @@
 set nocompatible
-filetype indent plugin on
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.Vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.Vim'
+
+call vundle#end()
+
+filetype plugin indent on
 syntax on
 set hidden
  
