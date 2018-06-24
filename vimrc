@@ -2,9 +2,18 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.Vim
-call vundle#begin()
+call vundle#rc()
 
 Plugin 'VundleVim/Vundle.Vim'
+
+Plugin 'airblade/vim-gitgutter'
+set updatetime=100
+
+Plugin 'morhetz/gruvbox'
+set background=dark
+let g:gruvbox_italic=1
+set termguicolors
+colorscheme gruvbox
 
 call vundle#end()
 
