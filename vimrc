@@ -12,10 +12,12 @@ set updatetime=100
 Plugin 'morhetz/gruvbox'
 set background=dark
 let g:gruvbox_italic=1
-set termguicolors
 colorscheme gruvbox
 
+Plugin 'scrooloose/nerdcommenter'
+
 call vundle#end()
+
 
 filetype plugin indent on
 syntax on
@@ -30,6 +32,9 @@ set showcmd
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
+
+" search incrementally as you enter characters
+set incsearch
  
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -65,9 +70,16 @@ set mouse=a
 " Set the command window height to 2 lines
 set cmdheight=2
  
-" Display line numbers on the left
-set number
- 
+" Display line numbers on the left -- hybrid of absolute and relative numbers
+set number relativenumber
+
+" Revert to absolute numbers in insert mode and when buffer loses focus
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup end
+
 " Quickly time out on keycodes, but never time out on mappings
 set notimeout ttimeout ttimeoutlen=200
  
@@ -75,7 +87,7 @@ set notimeout ttimeout ttimeoutlen=200
 set pastetoggle=<F11>
  
 " Always show at least one line above or below cursor.
-set scrolloff=1
+set scrolloff=3
  
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
@@ -83,6 +95,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
  
+set colorcolumn=80
 
 "------------------------------------------------------------
 " Packages
@@ -91,7 +104,10 @@ packadd! matchit
 
 "------------------------------------------------------------
 " Mappings {{{1
-"
+" 
+" set map leader
+let mapleader=" "
+
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
 map Y y$
@@ -100,3 +116,6 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
  
+" cancel a search with escape
+"nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+" ^^ This is commented out because causes vim to start in REPLACE mode ^^
