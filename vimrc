@@ -1,20 +1,31 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+let cyg = system("uname") =~? "cygwin"
+
+if cyg
+    set rtp+=~/repos/dotfiles/bundle/Vundle.vim
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+endif
+
+
 call vundle#rc()
 
 Plugin 'VundleVim/Vundle.Vim'
 
 Plugin 'airblade/vim-gitgutter'
-set updatetime=100
+set updatetime=300
 
 Plugin 'morhetz/gruvbox'
+set t_Co=256
 set background=dark
-let g:gruvbox_italic=1
+if !cyg
+    let g:gruvbox_italic=1
+endif
 colorscheme gruvbox
 
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-commentary'
 
 call vundle#end()
 
@@ -97,6 +108,7 @@ set expandtab
  
 set colorcolumn=80
 
+set fileformat=unix
 "------------------------------------------------------------
 " Packages
 "
