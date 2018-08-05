@@ -27,6 +27,13 @@ colorscheme gruvbox
 
 Plugin 'tpope/vim-commentary'
 
+Plugin 'w0rp/ale'
+
+Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#ale#enabled = 1
+
+Plugin 'eagletmt/ghcmod-vim'
+
 call vundle#end()
 
 
@@ -131,3 +138,4 @@ nnoremap <C-L> :nohl<CR><C-L>
 " cancel a search with escape
 "nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 " ^^ This is commented out because causes vim to start in REPLACE mode ^^
+
