@@ -17,7 +17,7 @@ Plugin 'VundleVim/Vundle.Vim'
 Plugin 'airblade/vim-gitgutter'
 set updatetime=300
 
-Plugin 'morhetz/gruvbox'
+Plugin 'phaazon/gruvbox'
 set t_Co=256
 set background=dark
 if !cyg
@@ -25,14 +25,12 @@ if !cyg
 endif
 colorscheme gruvbox
 
-Plugin 'tpope/vim-commentary'
+Plugin 'neovimhaskell/haskell-vim'
 
-Plugin 'w0rp/ale'
+Plugin 'tpope/vim-commentary'
 
 Plugin 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
-
-Plugin 'eagletmt/ghcmod-vim'
 
 call vundle#end()
 
