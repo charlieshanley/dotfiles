@@ -6,7 +6,7 @@ let cyg = system("uname") =~? "cygwin"
 if cyg
     set rtp+=~/repos/dotfiles/bundle/Vundle.vim
 else
-    set rtp+=~/.vim/bundle/Vundle.vim
+    set rtp+=~/dotfiles/bundle/Vundle.vim
 endif
 
 
