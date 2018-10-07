@@ -30,6 +30,9 @@ colorscheme gruvbox
 
 Plugin 'neovimhaskell/haskell-vim'
 
+" Syntax highlighting for Shakespearean templates (.hamlet, .lucius, .julius)
+Plugin 'pbrisbin/vim-syntax-shakespeare'
+
 Plugin 'tpope/vim-commentary'
 
 Plugin 'vim-airline/vim-airline'
