@@ -1,7 +1,8 @@
 set nocompatible
 filetype off
 
-let cyg = system("uname") =~? "cygwin"
+let cyg   = system("uname") =~? "cygwin"
+let linux = system("uname") =~? "Linux"
 
 if cyg
     set rtp+=~/repos/dotfiles/bundle/Vundle.vim
@@ -18,11 +19,13 @@ Plugin 'airblade/vim-gitgutter'
 set updatetime=300
 
 Plugin 'phaazon/gruvbox'
-set t_Co=256
-set background=dark
-if !cyg
-    let g:gruvbox_italic=1
+if cyg
+    set t_Co=256
 endif
+if linux
+    set t_ut=
+endif
+set background=dark
 colorscheme gruvbox
 
 Plugin 'neovimhaskell/haskell-vim'
