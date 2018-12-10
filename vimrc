@@ -27,6 +27,8 @@ colorscheme gruvbox
 
 Plugin 'neovimhaskell/haskell-vim'
 
+Plugin 'leafgarland/typescript-vim'
+
 Plugin 'tpope/vim-commentary'
 
 Plugin 'vim-airline/vim-airline'
@@ -38,13 +40,13 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 set hidden
- 
+
 " Better command-line completion
 set wildmenu
- 
+
 " Show partial commands in the last line of the screen
 set showcmd
- 
+
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
