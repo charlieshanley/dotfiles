@@ -34,6 +34,17 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
 
+Plugin 'scrooloose/nerdtree'
+" Open NERDTree when vim starts up
+autocmd vimenter * NERDTree 
+" Toggle on Ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+" Close vim if only remaining window is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+Plugin 'tpope/vim-surround'
+
 call vundle#end()
 
 
@@ -91,11 +102,18 @@ set cmdheight=2
 " Display line numbers on the left -- hybrid of absolute and relative numbers
 set number relativenumber
 
-" Revert to absolute numbers in insert mode and when buffer loses focus
+" Revert to absolute numbers in insert mode and when buffer loses focus, but
+" not in nerdtree
+fun! ExceptNerdtree(cmd)
+    if &ft == "nerdtree"
+        return
+    endif
+    execute a:cmd
+endfun
 augroup numbertoggle
     autocmd!
-    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-    autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    autocmd BufEnter,FocusGained,InsertLeave * call ExceptNerdtree("set relativenumber")
+    autocmd BufLeave,FocusLost,InsertEnter   * call ExceptNerdtree("set norelativenumber")
 augroup end
 
 " Quickly time out on keycodes, but never time out on mappings
@@ -116,6 +134,13 @@ set expandtab
 set colorcolumn=80
 
 set fileformat=unix
+
+" Navigate between splits with Ctrl-<hjkl>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
 "------------------------------------------------------------
 " Packages
 "
@@ -133,7 +158,7 @@ map Y y$
  
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <leader>l :nohl<CR><C-L>
  
 " cancel a search with escape
 "nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
