@@ -135,12 +135,6 @@ set colorcolumn=80
 
 set fileformat=unix
 
-" Navigate between splits with Ctrl-<hjkl>
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-
 "------------------------------------------------------------
 " Packages
 "
@@ -163,4 +157,14 @@ nnoremap <leader>l :nohl<CR><C-L>
 " cancel a search with escape
 "nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
 " ^^ This is commented out because causes vim to start in REPLACE mode ^^
+
+" Navigate between splits with Ctrl-<hjkl>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+" open splits
+nnoremap <leader>\ :vnew<CR>
+nnoremap <leader>- :new<CR>
 
