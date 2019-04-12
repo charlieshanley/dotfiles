@@ -1,15 +1,7 @@
 set nocompatible
 filetype off
 
-let cyg   = system("uname") =~? "cygwin"
-let linux = system("uname") =~? "Linux"
-
-if cyg
-    set rtp+=~/repos/dotfiles/bundle/Vundle.vim
-else
-    set rtp+=~/dotfiles/bundle/Vundle.vim
-endif
-
+set rtp+=~/repos/dotfiles/bundle/Vundle.vim
 
 call vundle#rc()
 
