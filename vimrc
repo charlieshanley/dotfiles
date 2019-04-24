@@ -11,24 +11,26 @@ Plugin 'airblade/vim-gitgutter'
 set updatetime=300
 
 Plugin 'phaazon/gruvbox'
-if cyg
-    set t_Co=256
-endif
-if linux
-    set t_ut=
-endif
-set background=dark
-colorscheme gruvbox
+" set background=dark
+" colorscheme gruvbox
 
 Plugin 'neovimhaskell/haskell-vim'
 
 " Syntax highlighting for Shakespearean templates (.hamlet, .lucius, .julius)
-Plugin 'pbrisbin/vim-syntax-shakespeare'
+" Plugin 'pbrisbin/vim-syntax-shakespeare'
 
 Plugin 'tpope/vim-commentary'
 
+Plugin 'tpope/vim-surround'
+
 Plugin 'vim-airline/vim-airline'
 let g:airline#extensions#ale#enabled = 1
+
+Plugin 'scrooloose/nerdtree'
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
 
 call vundle#end()
 
@@ -118,7 +120,7 @@ set fileformat=unix
 "packadd! matchit
 
 "------------------------------------------------------------
-" Mappings {{{1
+" Mappings 
 " 
 " set map leader
 let mapleader=" "
@@ -130,6 +132,12 @@ map Y y$
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
+
+" toggle nerdtree with control-n
+map <C-n> :NERDTreeToggle<CR>
+
+" undo gitgutter hunk with control-u
+map <C-u> :GitGutterUndoHunk<CR>
  
 " cancel a search with escape
 "nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
