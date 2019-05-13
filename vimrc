@@ -131,13 +131,19 @@ map Y y$
  
 " Map <C-L> (redraw screen) to also turn off search highlighting until the
 " next search
-nnoremap <C-L> :nohl<CR><C-L>
+nnoremap <leader>l :nohl<CR><C-L>
 
 " toggle nerdtree with control-n
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
 
 " undo gitgutter hunk with control-u
-map <C-u> :GitGutterUndoHunk<CR>
+noremap <C-u> :GitGutterUndoHunk<CR>
+
+" move panes with Ctrl-<direction> instead of Ctrl-W + <direction>
+noremap <C-h> <C-W>h
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
  
 " cancel a search with escape
 "nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
