@@ -11,8 +11,9 @@ Plugin 'airblade/vim-gitgutter'
 set updatetime=300
 
 Plugin 'phaazon/gruvbox'
-" set background=dark
-" colorscheme gruvbox
+" set termguicolors
+"set background=dark
+"colorscheme gruvbox
 
 Plugin 'neovimhaskell/haskell-vim'
 
@@ -24,7 +25,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-surround'
 
 Plugin 'vim-airline/vim-airline'
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 
 Plugin 'scrooloose/nerdtree'
 autocmd StdinReadPre * let s:std_in=1
