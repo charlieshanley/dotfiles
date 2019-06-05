@@ -111,6 +111,9 @@ set scrolloff=3
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+autocmd Filetype hs setlocal tabstop=2
+
  
 set colorcolumn=80
 
@@ -136,6 +139,9 @@ nnoremap <leader>l :nohl<CR><C-L>
 
 " toggle nerdtree with control-n
 noremap <C-n> :NERDTreeToggle<CR>
+
+" tab completion with shift-tab
+inoremap <S-Tab> <C-n>
 
 " undo gitgutter hunk with control-u
 noremap <C-u> :GitGutterUndoHunk<CR>
